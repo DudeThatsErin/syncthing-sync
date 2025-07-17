@@ -543,13 +543,17 @@ class SyncthingSettingTab extends obsidian.PluginSettingTab {
         new obsidian.Setting(containerEl)
             .setName('Poll Interval')
             .setDesc('How often to check sync status (in seconds)')
-            .addSlider(slider => slider
-                .setLimits(5, 60, 5)
-                .setValue(this.plugin.settings.pollInterval)
-                .setDynamicTooltip()
+            .addText(text => text
+                .setValue(String(this.plugin.settings.pollInterval))
+                .setPlaceholder('10')
                 .onChange(async (value) => {
-                    this.plugin.settings.pollInterval = value;
-                    await this.plugin.saveSettings();
+                    // Convert to number and validate
+                    const numValue = parseInt(value, 10);
+                    // Ensure it's a valid number and at least 5 seconds
+                    if (!isNaN(numValue) && numValue >= 5) {
+                        this.plugin.settings.pollInterval = numValue;
+                        await this.plugin.saveSettings();
+                    }
                 }));
                 
         // Add test connection button
