@@ -1,0 +1,10 @@
+{
+  "id": "syncthing-sync",
+  "name": "Syncthing Sync",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Integration with Syncthing to sync your vault with status indicator",
+  "author": "Erin Skidds",
+  "authorUrl": "https://github.com/DudeThatsErin",
+  "isDesktopOnly": true
+}

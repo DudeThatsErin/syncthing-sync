@@ -1,0 +1,70 @@
+/* Syncthing Plugin Styles */
+
+/* Base status bar item styling */
+.status-bar-item.syncthing-idle,
+.status-bar-item.syncthing-syncing,
+.status-bar-item.syncthing-error,
+.status-bar-item.syncthing-synced {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+/* Status icon styles */
+.status-bar-item::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+/* Idle status - gray dot */
+.status-bar-item.syncthing-idle::before {
+  background-color: var(--text-muted);
+}
+
+/* Syncing status - blue pulsing dot */
+.status-bar-item.syncthing-syncing::before {
+  background-color: var(--interactive-accent);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Error status - red dot */
+.status-bar-item.syncthing-error::before {
+  background-color: var(--text-error);
+}
+
+/* Synced status - green dot */
+.status-bar-item.syncthing-synced::before {
+  background-color: var(--text-success);
+}
+
+/* Pulse animation for syncing status */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Settings styles */
+.syncthing-settings-header {
+  margin-bottom: 12px;
+}
+
+.syncthing-settings-description {
+  margin-bottom: 24px;
+  color: var(--text-muted);
+}
