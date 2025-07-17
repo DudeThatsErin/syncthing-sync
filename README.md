@@ -108,6 +108,18 @@ These settings allow the plugin to communicate with Syncthing's API from within 
 
 **Note:** If you're using HTTPS for your Syncthing GUI (the "Use HTTPS for GUI" or "Use TLS" option is checked), make sure your plugin's Syncthing URL starts with `https://` instead of `http://`.
 
+### I'm getting "ERR_ADDRESS_INVALID" errors even with CORS settings enabled
+
+If you're seeing errors like `net::ERR_ADDRESS_INVALID` in the console, the issue is likely with the IP address you're using:
+
+1. Don't use `0.0.0.0` in your Syncthing URL - this is a special address that means "all IPv4 addresses on the local machine" and isn't valid for connections
+
+2. Instead, use one of these options:
+   - For local Syncthing: `http://127.0.0.1:8384` or `http://localhost:8384`
+   - For remote Syncthing: The actual IP address or hostname of your server
+
+3. If you're using HTTPS/TLS, make sure your browser trusts the certificate. Self-signed certificates may cause connection issues.
+
 ### How do I find my Syncthing API key?
 
 The API key is required for authenticating with Syncthing's REST API. **Important:** You need to use the API key from the Syncthing instance you're connecting to:
