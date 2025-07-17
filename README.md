@@ -21,8 +21,6 @@
 - [Syncthing](https://syncthing.net/) installed and running locally or remotely
 - API key or username/password for your Syncthing instance
 
-🔗 See: [Requirements & Setup →](https://github.com/DudeThatsErin/syncthing-sync/wiki#-requirements)
-
 ## 🔧 Installation
 
 **Recommended**: Install via [BRAT](https://github.com/TfTHacker/obsidian42-brat)
@@ -54,8 +52,6 @@ Visual sync status appears in the status bar:
 - 🟢 Synced
 - 🟡 Syncing
 - 🔴 Error
-
-📘 Learn more: [Usage & Status Indicators →](https://github.com/DudeThatsErin/syncthing-sync/wiki/Plugin-Settings#status-bar)
 
 ## ❓ FAQ & Troubleshooting
 
