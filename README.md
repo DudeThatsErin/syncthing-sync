@@ -120,6 +120,30 @@ If you're seeing errors like `net::ERR_ADDRESS_INVALID` in the console, the issu
 
 3. If you're using HTTPS/TLS, make sure your browser trusts the certificate. Self-signed certificates may cause connection issues.
 
+### Why am I getting "ERR_CONNECTION_TIMED_OUT" errors?
+
+If you're seeing `net::ERR_CONNECTION_TIMED_OUT` errors when trying to connect to your Syncthing instance, especially a remote one, here are some troubleshooting steps:
+
+1. **Check your firewall settings**:
+   - Ensure port 8384 (or your custom Syncthing GUI port) is open on your server's firewall
+   - Verify your local network allows outgoing connections to this port
+
+2. **Verify Syncthing is configured for remote access**:
+   - In Syncthing's config.xml, the GUI address should be set to `0.0.0.0:8384` to listen on all interfaces
+   - Check that Syncthing is actually running on the server
+
+3. **Test basic connectivity**:
+   - Try accessing the Syncthing web GUI directly in your browser using the same URL
+   - Use a tool like `ping` or `telnet` to test basic connectivity to the server
+
+4. **Check your URL format**:
+   - Make sure you're using the correct protocol (http:// or https://)
+   - Verify the domain name resolves correctly or use the IP address directly
+
+5. **If using HTTPS/TLS**:
+   - Ensure your certificates are valid and trusted
+   - Try temporarily using HTTP instead to rule out certificate issues
+
 ### How do I find my Syncthing API key?
 
 The API key is required for authenticating with Syncthing's REST API. **Important:** You need to use the API key from the Syncthing instance you're connecting to:
