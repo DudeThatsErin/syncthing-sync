@@ -72,6 +72,26 @@ The following commands are available in the Obsidian Command Palette (Ctrl/Cmd+P
 - **Delete All Sync Conflict Files**: Scans your vault for `.sync-conflict-*` files and deletes them
 - **Check Connection**: Tests the connection to your Syncthing instance
 
+## ❓ Frequently Asked Questions
+
+### Does Syncthing need to be running on my computer for this plugin to work?
+
+Yes, Syncthing must be running on your computer (or accessible on your network) for this plugin to work. The plugin communicates with Syncthing's REST API to check sync status and perform operations like forcing syncs or scanning for changes. If Syncthing is not running, the plugin will show a disconnected status and won't be able to monitor or control your sync process.
+
+### Can I use this plugin with a remote Syncthing instance?
+
+Yes, you can configure the plugin to connect to a remote Syncthing instance by setting the appropriate URL in the plugin settings. However, you'll need to ensure that:
+1. The remote Syncthing instance is accessible from your network
+2. You have the correct API key or authentication credentials
+3. Any firewalls or network restrictions allow the connection
+
+### How do I find my Syncthing API key?
+
+You can find your Syncthing API key in the Syncthing Web GUI:
+1. Open your Syncthing Web GUI (typically at http://localhost:8384)
+2. Go to Actions > Settings > GUI
+3. Look for the API Key field
+
 ## 🔍 Troubleshooting
 
 ### CORS Issues
