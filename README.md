@@ -78,19 +78,55 @@ The following commands are available in the Obsidian Command Palette (Ctrl/Cmd+P
 
 Yes, Syncthing must be running on your computer (or accessible on your network) for this plugin to work. The plugin communicates with Syncthing's REST API to check sync status and perform operations like forcing syncs or scanning for changes. If Syncthing is not running, the plugin will show a disconnected status and won't be able to monitor or control your sync process.
 
-### Can I use this plugin with a remote Syncthing instance?
+### Can I use this plugin with a remote Syncthing instance like my Oracle server?
 
-Yes, you can configure the plugin to connect to a remote Syncthing instance by setting the appropriate URL in the plugin settings. However, you'll need to ensure that:
-1. The remote Syncthing instance is accessible from your network
-2. You have the correct API key or authentication credentials
-3. Any firewalls or network restrictions allow the connection
+Yes! You don't need Syncthing running on your local computer. You can connect directly to a remote Syncthing instance (like one running on your Oracle server) by setting the appropriate URL in the plugin settings. This means:
 
+1. Syncthing can be running exclusively on your remote server
+2. Your Obsidian client with this plugin will connect directly to that remote instance
+3. You'll need to configure the following:
+   - Set the Syncthing URL to your server's address (e.g., `http://your-external-server-ip:8384`)
+   - Ensure your server's firewall allows connections to the Syncthing port (typically 8384)
+   - Configure your Syncthing instance on the server to accept remote connections
+   - Use the API key from your server's Syncthing instance
+
+This setup is ideal for users who want to keep Syncthing running on a server that's always on, rather than having to run it locally on each device.
+
+<a id="how-do-i-find-my-syncthing-api-key"></a>
 ### How do I find my Syncthing API key?
 
-You can find your Syncthing API key in the Syncthing Web GUI:
+The API key is required for authenticating with Syncthing's REST API. **Important:** You need to use the API key from the Syncthing instance you're connecting to:
+
+- If connecting to Syncthing running on your local computer, use your local Syncthing's API key
+- If connecting to a remote Syncthing instance (e.g., on your Oracle server), use that remote server's Syncthing API key
+
+You can find the API key in two ways:
+
+#### Method 1: Through the Syncthing Web GUI
+
 1. Open your Syncthing Web GUI (typically at http://localhost:8384)
 2. Go to Actions > Settings > GUI
-3. Look for the API Key field
+3. Look for the API Key field (it should be displayed there)
+
+#### Method 2: From the config.xml file
+
+If you can't find it in the GUI, you can check the config file:
+
+1. Locate your Syncthing config.xml file:
+   - Windows: `%LOCALAPPDATA%\Syncthing\config.xml`
+   - macOS: `~/Library/Application Support/Syncthing/config.xml`
+   - Linux: `~/.config/syncthing/config.xml`
+
+2. Open the file in a text editor
+
+3. Look for the `<apikey>` tag within the `<gui>` section, which looks like this:
+   ```xml
+   <gui>
+       <!-- other settings -->
+       <apikey>abcdefghijklmnopqrstuvwxyz123456</apikey>
+       <!-- other settings -->
+   </gui>
+   ```
 
 ## 🔍 Troubleshooting
 
