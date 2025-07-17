@@ -1,7 +1,7 @@
 # Syncthing Sync for Obsidian
 
 ![GitHub release](https://img.shields.io/github/v/release/DudeThatsErin/syncthing-sync)
-![GitHub license](https://img.shields.io/github/license/DudeThatsErin/syncthing-sync)
+![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
 
 An Obsidian plugin that integrates with [Syncthing](https://syncthing.net/) to provide sync status and management directly within Obsidian. Monitor your sync status in real-time, force syncs when needed, and easily clean up sync conflict files—all without leaving Obsidian.
 
@@ -99,7 +99,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgements
 
