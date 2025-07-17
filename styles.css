@@ -1,10 +1,7 @@
 /* Syncthing Plugin Styles */
 
-/* Base status bar item styling */
-.status-bar-item.syncthing-idle,
-.status-bar-item.syncthing-syncing,
-.status-bar-item.syncthing-error,
-.status-bar-item.syncthing-synced {
+/* Base status bar item styling for Syncthing */
+.status-bar-item[data-status] {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -13,7 +10,7 @@
 }
 
 /* Status icon styles */
-.status-bar-item::before {
+.status-bar-item[data-status]::before {
   content: "";
   display: inline-block;
   width: 14px;
@@ -23,24 +20,45 @@
 }
 
 /* Idle status - gray dot */
-.status-bar-item.syncthing-idle::before {
+.status-bar-item[data-status="idle"]::before {
   background-color: var(--text-muted);
 }
 
 /* Syncing status - blue pulsing dot */
-.status-bar-item.syncthing-syncing::before {
+.status-bar-item[data-status="syncing"]::before {
   background-color: var(--interactive-accent);
   animation: pulse 1.5s infinite ease-in-out;
 }
 
 /* Error status - red dot */
-.status-bar-item.syncthing-error::before {
+.status-bar-item[data-status="error"]::before {
   background-color: var(--text-error);
 }
 
 /* Synced status - green dot */
-.status-bar-item.syncthing-synced::before {
+.status-bar-item[data-status="synced"]::before {
   background-color: var(--text-success);
+}
+
+/* Tooltip styling */
+.status-bar-item[data-tooltip] {
+  position: relative;
+}
+
+.status-bar-item[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--background-modifier-hover);
+  color: var(--text-normal);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 100;
+  pointer-events: none;
 }
 
 /* Pulse animation for syncing status */
