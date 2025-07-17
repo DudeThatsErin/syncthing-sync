@@ -490,7 +490,7 @@ class SyncthingSettingTab extends obsidian.PluginSettingTab {
             'API Key for the Syncthing instance you want to connect to. ',
             'Use the API key from your local Syncthing or from your remote server (if connecting to a remote instance). ',
             createEl('a', {
-                href: 'https://github.com/DudeThatsErin/syncthing-sync#how-do-i-find-my-syncthing-api-key',
+                href: 'https://github.com/DudeThatsErin/syncthing-sync/tree/main#how-do-i-find-my-syncthing-api-key',
                 text: 'Click here for instructions on where to get the API key',
                 target: '_blank'
             })

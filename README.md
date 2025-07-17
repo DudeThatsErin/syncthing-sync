@@ -92,7 +92,22 @@ Yes! You don't need Syncthing running on your local computer. You can connect di
 
 This setup is ideal for users who want to keep Syncthing running on a server that's always on, rather than having to run it locally on each device.
 
-<a id="how-do-i-find-my-syncthing-api-key"></a>
+### Why am I getting connection errors with Syncthing?
+
+If you're seeing errors like "Connection test error: TypeError: Failed to fetch" or "Error checking Syncthing status", it's likely due to CORS (Cross-Origin Resource Sharing) restrictions. To fix this:
+
+1. In your Syncthing Web GUI, go to Actions > Settings > Advanced > GUI
+2. Enable the following options:
+   - ✓ Insecure Admin Access
+   - ✓ Insecure Allow Frame Loading
+   - ✓ Insecure Skip Hostcheck
+3. Click Save
+4. Restart Syncthing
+
+These settings allow the plugin to communicate with Syncthing's API from within Obsidian.
+
+**Note:** If you're using HTTPS for your Syncthing GUI (the "Use HTTPS for GUI" or "Use TLS" option is checked), make sure your plugin's Syncthing URL starts with `https://` instead of `http://`.
+
 ### How do I find my Syncthing API key?
 
 The API key is required for authenticating with Syncthing's REST API. **Important:** You need to use the API key from the Syncthing instance you're connecting to:
@@ -105,7 +120,7 @@ You can find the API key in two ways:
 #### Method 1: Through the Syncthing Web GUI
 
 1. Open your Syncthing Web GUI (typically at http://localhost:8384)
-2. Go to Actions > Settings > GUI
+2. Go to Actions > Settings > Advanced > GUI
 3. Look for the API Key field (it should be displayed there)
 
 #### Method 2: From the config.xml file

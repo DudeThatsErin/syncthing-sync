@@ -1,8 +1,8 @@
 {
-  "syncthingApiKey": "yqWuMep5ZZzXbJCzg9hVZwVZTX3pyaKr",
-  "syncthingUrl": "http://127.0.0.1:8384",
+  "syncthingUsername": "DudeThatsErin",
+  "syncthingPassword": "PdV.PUJvKoDj7TZ-De!9vgrtLJ!",
+  "syncthingApiKey": "yYdodi4p3bDFLZ4zkEvL6wgakokg42v7jDD",
+  "syncthingUrl": "https://0.0.0.0:8384",
   "pollInterval": 20,
-  "folderId": "penkm-ujrb3",
-  "syncthingUsername": "",
-  "syncthingPassword": ""
+  "folderId": "penkm-ujrb3"
 }
